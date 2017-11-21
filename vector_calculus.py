@@ -1,18 +1,17 @@
 import sympy
-import sympy.physics
-import sympy.physics.vector
+import sympy.vector
 
 
-R = sympy.physics.vector.ReferenceFrame('R')
+R = sympy.vector.CoordSysCartesian('R')
 
-scalar = R[0] + R[1] + R[2]
+scalar = R.x + R.y + R.z
 
-grad_scalar = sympy.physics.vector.gradient(scalar, R)
+grad_scalar = sympy.vector.gradient(scalar, R)
 
 print("grad(scalar) = " + str(grad_scalar))
 
 vector = grad_scalar
 
-grad_vector = sympy.physics.vector.gradient(vector, R)
+grad_vector = sympy.vector.gradient(vector, R)
 
 print("grad(vector) = " + str(grad_vector))
